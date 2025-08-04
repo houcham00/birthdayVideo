@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vidéo d'anniversaire animée express - 10 000 FCFA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafbfc;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #00c4cc 0%, #7b68ee 100%);
+            color: white;
+            padding: 80px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 85vh;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="%23ffffff" stop-opacity="0.1"/><stop offset="100%" stop-color="%23ffffff" stop-opacity="0"/></radialGradient></defs><circle cx="200" cy="300" r="100" fill="url(%23a)"/><circle cx="800" cy="200" r="150" fill="url(%23a)"/><circle cx="400" cy="800" r="120" fill="url(%23a)"/></svg>') no-repeat center;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 3.8rem;
+            margin-bottom: 24px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero .subheading {
+            font-size: 1.25rem;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .price-block {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 24px 40px;
+            border-radius: 20px;
+            margin: 32px auto;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 380px;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        .price-label {
+            font-size: 0.875rem;
+            opacity: 0.8;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            max-width: 420px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            padding: 20px 32px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            letter-spacing: -0.01em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: #ffffff;
+            color: #00c4cc;
+            box-shadow: 0 8px 32px rgba(0, 196, 204, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 12px 40px rgba(0, 196, 204, 0.4);
+            background: #f8fffe;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Templates Section */
+        .templates {
+            padding: 120px 0;
+            background: #ffffff;
+        }
+
+        .templates h2 {
+            text-align: center;
+            font-size: 2.75rem;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .templates-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 64px;
+            font-weight: 400;
+        }
+
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .template-card {
+            background: #ffffff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #f0f0f0;
+        }
+
+        .template-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 196, 204, 0.15);
+            border-color: #00c4cc;
+        }
+
+        .template-thumbnail {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: #6c757d;
+            position: relative;
+            font-weight: 500;
+            overflow: hidden;
+        }
+
+        .template-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+        }
+
+        .template-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .template-placeholder::before {
+            content: '🎬';
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .play-button {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #00c4cc 0%, #7b68ee 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            box-shadow: 0 4px 16px rgba(0, 196, 204, 0.3);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 2px solid white;
+        }
+
+        .template-card:hover .play-button {
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(0, 196, 204, 0.4);
+        }
+
+        .template-info {
+            padding: 24px;
+            text-align: left;
+        }
+
+        .template-title {
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 1.125rem;
+            color: #1a1a1a;
+            letter-spacing: -0.01em;
+        }
+
+        .template-description {
+            color: #666;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+        }
+
+        /* Payment Section */
+        .payment {
+            padding: 120px 0;
+            background: #fafbfc;
+        }
+
+        .payment h2 {
+            text-align: center;
+            font-size: 2.75rem;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .payment-subtitle {
+            text-align: center;
+            font-size: 1.125rem;
+            color: #666;
+            margin-bottom: 64px;
+            font-weight: 400;
+        }
+
+        .payment-steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 48px;
+            gap: 16px;
+        }
+
+        .progress-step {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #9ca3af;
+        }
+
+        .progress-step.active {
+            color: #00c4cc;
+        }
+
+        .progress-step.completed {
+            color: #22c55e;
+        }
+
+        .progress-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            color: #9ca3af;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 8px;
+            border: 2px solid #f3f4f6;
+        }
+
+        .progress-step.active .progress-number {
+            background: #00c4cc;
+            color: white;
+            border-color: #00c4cc;
+        }
+
+        .progress-step.completed .progress-number {
+            background: #22c55e;
+            color: white;
+            border-color: #22c55e;
+        }
+
+        .progress-divider {
+            width: 40px;
+            height: 2px;
+            background: #e5e7eb;
+            border-radius: 1px;
+        }
+
+        .progress-step.completed + .progress-divider {
+            background: #22c55e;
+        }
+
+        .step {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .step.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .step h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: #1a1a1a;
+            letter-spacing: -0.01em;
+        }
+
+        .step-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+        }
+
+        .btn-back {
+            background: #f8f9fa;
+            color: #6c757d;
+            border: 2px solid #e9ecef;
+        }
+
+        .btn-back:hover {
+            background: #e9ecef;
+            color: #495057;
+            transform: translateY(-2px);
+        }
+
+        .package-selection-info {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 32px 0;
+            text-align: center;
+            border: 1px solid rgba(21, 101, 192, 0.1);
+        }
+
+        .selected-package {
+            font-weight: 700;
+            color: #1565c0;
+            font-size: 1.125rem;
+        }
+
+        .package-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .package-card {
+            background: #ffffff;
+            padding: 32px;
+            border-radius: 20px;
+            border: 2px solid #f0f0f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            position: relative;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #d1d5db;
+            border-radius: 50%;
+            transition: all 0.2s ease;
+        }
+
+        .package-card:hover,
+        .package-card.selected {
+            border-color: #00c4cc;
+            box-shadow: 0 8px 32px rgba(0, 196, 204, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .package-card.selected::before {
+            background: #00c4cc;
+            border-color: #00c4cc;
+            box-shadow: inset 0 0 0 4px white;
+        }
+
+        .package-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            letter-spacing: -0.01em;
+        }
+
+        .package-description {
+            color: #6c757d;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.9375rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-top: 16px;
+        }
+
+        .package-features li {
+            color: #00c4cc;
+            font-size: 0.875rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            margin-right: 8px;
+            font-weight: 700;
+        }
+
+        .moneroo-checkout {
+            margin: 48px 0;
+            text-align: center;
+        }
+
+        .payment-provider {
+            background: #ffffff;
+            border: 2px solid #f0f0f0;
+            border-radius: 16px;
+            padding: 32px;
+            margin: 24px 0;
+        }
+
+        .provider-logos {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .provider-logo {
+            padding: 12px 24px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            font-weight: 600;
+            color: #495057;
+            font-size: 0.875rem;
+        }
+
+        .typeform-container {
+            margin-top: 48px;
+        }
+
+        .typeform-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 32px;
+            border-radius: 24px;
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            width: 32px;
+            height: 32px;
+            background: #f8f9fa;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            color: #6c757d;
+            transition: all 0.2s ease;
+            border: none;
+        }
+
+        .modal-close:hover {
+            background: #e9ecef;
+            color: #495057;
+        }
+
+        .modal iframe {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 16px;
+        }
+
+        /* Desktop Responsive */
+        @media (min-width: 769px) {
+            .hero {
+                min-height: 45vh;
+                padding: 40px 0 20px;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subheading {
+                font-size: 1.125rem;
+            }
+
+            .price {
+                font-size: 2.75rem;
+            }
+
+            .templates {
+                padding: 80px 0;
+            }
+
+            .templates h2 {
+                font-size: 2.25rem;
+            }
+
+            .templates-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .template-thumbnail {
+                height: 200px;
+            }
+
+            .template-info {
+                padding: 20px;
+            }
+
+            .template-description {
+                font-size: 0.875rem;
+            }
+
+            .progress-indicator {
+                flex-wrap: wrap;
+                gap: 8px 12px;
+                margin-bottom: 32px;
+            }
+
+            .progress-step {
+                font-size: 0.75rem;
+                flex-shrink: 1;
+                min-width: 0;
+            }
+
+            .progress-step span {
+                display: none;
+            }
+
+            .progress-number {
+                width: 28px;
+                height: 28px;
+                margin-right: 0;
+                font-size: 0.75rem;
+            }
+
+            .progress-divider {
+                width: 20px;
+                height: 2px;
+                order: 10;
+                flex-basis: 100%;
+                margin: 4px auto;
+            }
+
+            .payment {
+                padding: 80px 0;
+            }
+
+            .payment h2 {
+                font-size: 2.25rem;
+            }
+
+            .cta-buttons {
+                max-width: 100%;
+            }
+
+            .package-options {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                margin: 20px;
+                padding: 24px;
+                max-width: calc(100vw - 40px);
+            }
+
+            .modal iframe {
+                height: 300px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .btn {
+                padding: 18px 28px;
+                font-size: 0.9375rem;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .instructions {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            padding: 24px;
+            border-radius: 16px;
+            margin: 32px 0;
+            text-align: center;
+            color: #1565c0;
+            font-weight: 600;
+            border: 1px solid rgba(21, 101, 192, 0.1);
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 1s linear infinite;
+            margin-right: 8px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .success-checkmark {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #22c55e;
+            border-radius: 50%;
+            margin-right: 8px;
+            position: relative;
+        }
+
+        .success-checkmark::after {
+            content: '✓';
+            position: absolute;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Vidéo d'anniversaire animée express</h1>
+                <p class="subheading">Créez des vidéos personnalisées inoubliables en quelques clics. Choisissez parmi nos templates ou optez pour une animation 100% sur-mesure.</p>
+                
+                <div class="price-block">
+                    <div class="price">10 000 FCFA</div>
+                    <div class="price-label">Prix unique, tout inclus</div>
+                </div>
+
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="showPayment('template')">
+                        🎬 3 Anniversaires couverts toute l'année
+                    </button>
+                    <button class="btn btn-secondary" onclick="showPayment('custom')">
+                        ✨ 1 Animation sur-mesure unique
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Templates Section -->
+    <main>
+        <section class="templates">
+            <div class="container">
+                <h2>Nos 5 Templates Disponibles</h2>
+                <p class="templates-subtitle">Choisissez votre style préféré • Utilisable 3 fois dans l'année</p>
+                
+                <div class="templates-grid">
+                    <div class="template-card">
+                        <div class="template-thumbnail">
+                            <!-- Replace with actual Canva video embed -->
+                            <video class="template-video" autoplay muted loop playsinline>
+                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+                                <div class="template-placeholder">
+                                    <span>Template Anniversaire Enfant</span>
+                                </div>
+                            </video>
+                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                        </div>
+                        <div class="template-info">
+                            <div class="template-title">Anniversaire Enfant</div>
+                            <p class="template-description">Animation colorée avec ballons, confettis et personnages amusants parfaite pour les plus jeunes</p>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-thumbnail">
+                            <!-- Replace with actual Canva video embed -->
+                            <video class="template-video" autoplay muted loop playsinline>
+                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4" type="video/mp4">
+                                <div class="template-placeholder">
+                                    <span>Template Anniversaire Adulte</span>
+                                </div>
+                            </video>
+                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                        </div>
+                        <div class="template-info">
+                            <div class="template-title">Anniversaire Adulte</div>
+                            <p class="template-description">Design élégant et sophistiqué avec typographies modernes et animations fluides</p>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-thumbnail">
+                            <!-- Replace with actual Canva video embed -->
+                            <video class="template-video" autoplay muted loop playsinline>
+                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_5mb.mp4" type="video/mp4">
+                                <div class="template-placeholder">
+                                    <span>Template Famille</span>
+                                </div>
+                            </video>
+                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                        </div>
+                        <div class="template-info">
+                            <div class="template-title">Anniversaire Famille</div>
+                            <p class="template-description">Ambiance chaleureuse et familiale avec des éléments nostalgiques et touchants</p>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-thumbnail">
+                            <!-- Replace with actual Canva video embed -->
+                            <video class="template-video" autoplay muted loop playsinline>
+                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_640x360_1mb.mp4" type="video/mp4">
+                                <div class="template-placeholder">
+                                    <span>Template Entreprise</span>
+                                </div>
+                            </video>
+                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                        </div>
+                        <div class="template-info">
+                            <div class="template-title">Anniversaire Entreprise</div>
+                            <p class="template-description">Style professionnel et moderne adapté aux célébrations d'entreprise</p>
+                        </div>
+                    </div>
+
+                    <div class="template-card">
+                        <div class="template-thumbnail">
+                            <!-- Replace with actual Canva video embed -->
+                            <video class="template-video" autoplay muted loop playsinline>
+                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_360x240_1mb.mp4" type="video/mp4">
+                                <div class="template-placeholder">
+                                    <span>Template Romantique</span>
+                                </div>
+                            </video>
+                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                        </div>
+                        <div class="template-info">
+                            <div class="template-title">Anniversaire Romantique</div>
+                            <p class="template-description">Design romantique et élégant pour célébrer l'amour et les moments précieux</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Section -->
+        <section class="payment" id="payment-section">
+            <div class="container">
+                <h2>Commencer votre projet</h2>
+                <p class="payment-subtitle">Choisissez votre formule et créez votre vidéo en quelques étapes</p>
+                
+                <!-- Progress Indicator -->
+                <div class="progress-indicator">
+                    <div class="progress-step active" id="progress-1">
+                        <div class="progress-number">1</div>
+                        <span>Choix formule</span>
+                    </div>
+                    <div class="progress-divider"></div>
+                    <div class="progress-step" id="progress-2">
+                        <div class="progress-number">2</div>
+                        <span>Paiement</span>
+                    </div>
+                    <div class="progress-divider"></div>
+                    <div class="progress-step" id="progress-3">
+                        <div class="progress-number">3</div>
+                        <span>Informations</span>
+                    </div>
+                </div>
+
+                <div class="payment-steps">
+                    <!-- Step 1: Package Selection -->
+                    <div class="step active" id="step-package">
+                        <h3>Étape 1 : Choisissez votre formule</h3>
+                        <div class="package-options">
+                            <div class="package-card" onclick="selectPackage('template')">
+                                <div class="package-title">🎂 3 Anniversaires / An</div>
+                                <div class="package-description">Commandez vos vidéos quand vous voulez • 3 crédits utilisables toute l'année pour 3 anniversaires différents</div>
+                                <ul class="package-features">
+                                    <li>5 designs professionnels au choix</li>
+                                    <li>3 crédits vidéo à utiliser quand vous voulez</li>
+                                    <li>Valable 12 mois après achat</li>
+                                    <li>Livraison 24h par commande</li>
+                                    <li>Révisions incluses</li>
+                                </ul>
+                            </div>
+                            <div class="package-card" onclick="selectPackage('custom')">
+                                <div class="package-title">✨ Animation Sur-mesure Unique</div>
+                                <div class="package-description">1 animation 100% personnalisée créée spécialement selon vos besoins et votre vision unique</div>
+                                <ul class="package-features">
+                                    <li>Design 100% unique</li>
+                                    <li>1 vidéo sur-mesure</li>
+                                    <li>Création personnalisée</li>
+                                    <li>Livraison en 48h</li>
+                                    <li>3 révisions incluses</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button class="btn btn-primary" id="continue-payment" onclick="showPaymentStep()" disabled>
+                                Continuer vers le paiement →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Payment -->
+                    <div class="step" id="step-payment">
+                        <h3>Étape 2 : Paiement sécurisé</h3>
+                        <div class="package-selection-info">
+                            <p>Formule sélectionnée : <span class="selected-package" id="selected-package-display"></span></p>
+                            <p style="margin-top: 8px; font-size: 1.5rem; font-weight: 800; color: #00c4cc;">10 000 FCFA</p>
+                        </div>
+                        <div class="payment-provider">
+                            <div class="provider-logos">
+                                <div class="provider-logo">💳 Moneroo</div>
+                                <div class="provider-logo">🏦 Axa Zara</div>
+                            </div>
+                            <div class="moneroo-checkout">
+                                <div id="moneroo-payment-button">
+                                    <button class="btn btn-primary" onclick="processPayment()" id="payment-btn">
+                                        🔒 Payer 10 000 FCFA maintenant
+                                    </button>
+                                    <p style="margin-top: 16px; color: #6c757d; font-size: 0.875rem;">
+                                        Paiement 100% sécurisé • Satisfaction garantie
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
+                            <button class="btn btn-back" onclick="goToStep(1)">
+                                ← Retour
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Form -->
+                    <div class="step" id="step-form">
+                        <h3>Étape 3 : Vos informations</h3>
+                        <div class="package-selection-info">
+                            <p>✅ Paiement réussi pour : <span class="selected-package" id="final-package-display"></span></p>
+                        </div>
+                        <div class="instructions">
+                            🎬 Remplissez ce formulaire pour recevoir votre vidéo personnalisée
+                        </div>
+                        <div class="typeform-container">
+                            <iframe class="typeform-iframe" 
+                                    src="https://form.typeform.com/to/YOUR_TYPEFORM_ID" 
+                                    title="Formulaire vidéo personnalisée">
+                            </iframe>
+                        </div>
+                        <div class="step-navigation">
+                            <button class="btn btn-back" onclick="goToStep(2)">
+                                ← Retour au paiement
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Configuration variables
+        const MONEROO_PUBLIC_KEY = 'YOUR_MONEROO_PUBLIC_KEY';
+        const TYPEFORM_URL = 'https://form.typeform.com/to/YOUR_TYPEFORM_ID';
+        
+        let selectedPackage = null;
+        let currentStep = 1;
+
+        // Package display names
+        const packageNames = {
+            template: '3 Anniversaires / An',
+            custom: 'Animation Sur-mesure Unique'
+        };
+
+        function showPayment(packageType) {
+            selectedPackage = packageType;
+            document.getElementById('payment-section').scrollIntoView({ behavior: 'smooth' });
+            selectPackage(packageType);
+        }
+
+        function selectPackage(packageType) {
+            selectedPackage = packageType;
+            
+            // Update UI
+            const cards = document.querySelectorAll('.package-card');
+            cards.forEach(card => card.classList.remove('selected'));
+            
+            if (packageType === 'template') {
+                cards[0].classList.add('selected');
+            } else {
+                cards[1].classList.add('selected');
+            }
+            
+            document.getElementById('continue-payment').disabled = false;
+        }
+
+        function updateProgressIndicator(step) {
+            // Reset all steps
+            for (let i = 1; i <= 3; i++) {
+                const progressStep = document.getElementById(`progress-${i}`);
+                progressStep.classList.remove('active', 'completed');
+                
+                if (i < step) {
+                    progressStep.classList.add('completed');
+                } else if (i === step) {
+                    progressStep.classList.add('active');
+                }
+            }
+        }
+
+        function goToStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step').forEach(stepEl => {
+                stepEl.classList.remove('active');
+            });
+            
+            // Show target step
+            if (step === 1) {
+                document.getElementById('step-package').classList.add('active');
+            } else if (step === 2) {
+                document.getElementById('step-payment').classList.add('active');
+                updatePaymentDisplay();
+            } else if (step === 3) {
+                document.getElementById('step-form').classList.add('active');
+                updateFinalDisplay();
+            }
+            
+            currentStep = step;
+            updateProgressIndicator(step);
+        }
+
+        function showPaymentStep() {
+            goToStep(2);
+        }
+
+        function updatePaymentDisplay() {
+            const packageDisplay = document.getElementById('selected-package-display');
+            if (packageDisplay && selectedPackage) {
+                packageDisplay.textContent = packageNames[selectedPackage];
+            }
+        }
+
+        function updateFinalDisplay() {
+            const finalDisplay = document.getElementById('final-package-display');
+            if (finalDisplay && selectedPackage) {
+                finalDisplay.textContent = packageNames[selectedPackage];
+            }
+            
+            // Update Typeform iframe with package info
+            const iframe = document.querySelector('.typeform-iframe');
+            const typeformUrl = `${TYPEFORM_URL}?package=${selectedPackage}&price=10000`;
+            iframe.src = typeformUrl;
+        }
+
+        function processPayment() {
+            const paymentBtn = document.getElementById('payment-btn');
+            
+            // Show loading state
+            paymentBtn.innerHTML = '<span class="loading-spinner"></span> Traitement en cours...';
+            paymentBtn.disabled = true;
+            
+            // Simulate payment processing
+            // In production, integrate with actual Moneroo API
+            console.log('Processing payment for package:', selectedPackage);
+            
+            setTimeout(() => {
+                // Simulate successful payment
+                paymentBtn.innerHTML = '<span class="success-checkmark"></span> Paiement réussi !';
+                
+                setTimeout(() => {
+                    goToStep(3);
+                }, 1500);
+            }, 3000);
+        }
+
+        // Video control functions
+        function toggleVideo(button) {
+            const video = button.parentElement.querySelector('.template-video');
+            if (video) {
+                if (video.paused) {
+                    video.play();
+                    button.textContent = '⏸';
+                } else {
+                    video.pause();
+                    button.textContent = '▶';
+                }
+            }
+        }
+
+        // Auto-pause videos when out of view
+        function setupVideoObserver() {
+            const videos = document.querySelectorAll('.template-video');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const video = entry.target;
+                    const playButton = video.parentElement.querySelector('.play-button');
+                    
+                    if (!entry.isIntersecting) {
+                        video.pause();
+                        if (playButton) playButton.textContent = '▶';
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            videos.forEach(video => observer.observe(video));
+        }
+
+        // Initialize Moneroo payment widget (placeholder)
+        function initializeMoneroo() {
+            // Moneroo integration code here
+            console.log('Moneroo initialized with public key:', MONEROO_PUBLIC_KEY);
+            
+            // In production, you would differentiate packages here:
+            // - Send package type to Moneroo metadata
+            // - Use different product IDs for template vs custom
+            // - Pass package info in payment description
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMoneroo();
+            setupVideoObserver();
+            updateProgressIndicator(1);
+            
+            // Auto-pause videos after 10 seconds to save bandwidth
+            setTimeout(() => {
+                document.querySelectorAll('.template-video').forEach(video => {
+                    if (!video.paused) {
+                        video.pause();
+                        const playButton = video.parentElement.querySelector('.play-button');
+                        if (playButton) playButton.textContent = '▶';
+                    }
+                });
+            }, 10000);
+        });
+    </script>
+</body>
+</html>
