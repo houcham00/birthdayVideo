@@ -813,62 +813,62 @@
     <main>
         <section class="templates">
             <div class="container">
-                <h2>Nos 5 Templates Disponibles</h2>
+                <h2>Nos 3 Templates Disponibles</h2>
                 <p class="templates-subtitle">Choisissez votre style préféré • Utilisable 3 fois dans l'année</p>
                 
                 <div class="templates-grid">
                     <div class="template-card">
                         <div class="template-thumbnail">
-                            <!-- Canva video from YouTube - Kids Birthday Template -->
+                            <!-- Canva video from YouTube - Minimalist Happy Birthday Video -->
                             <iframe class="template-video" 
-                                    src="https://www.youtube.com/embed/skqzaMdeNjo?autoplay=1&mute=1&loop=1&playlist=skqzaMdeNjo&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                                    src="https://www.youtube.com/embed/skqzaMdeNjo?controls=1&showinfo=0&rel=0&modestbranding=1" 
                                     frameborder="0" 
-                                    allow="autoplay; encrypted-media"
+                                    allow="encrypted-media"
                                     allowfullscreen>
                             </iframe>
-                            <div class="play-button" onclick="toggleYouTubeVideo(this)">⏸</div>
+                            <div class="play-button" onclick="toggleYouTubeVideo(this)">▶</div>
                         </div>
                         <div class="template-info">
-                            <div class="template-title">Anniversaire Enfant</div>
-                            <p class="template-description">Animation colorée avec ballons, confettis et personnages amusants parfaite pour les plus jeunes</p>
+                            <div class="template-title">Minimalist Happy Birthday Video</div>
+                            <p class="template-description">Design épuré et moderne avec typographies élégantes et animations subtiles pour un style minimaliste</p>
                         </div>
                     </div>
 
                     <div class="template-card">
                         <div class="template-thumbnail">
-                            <!-- Canva video from YouTube - Adult Birthday Template -->
+                            <!-- Canva video from YouTube - Lettre Happy Birthday Video -->
                             <iframe class="template-video" 
-                                    src="https://www.youtube.com/embed/terDdZRVErA?autoplay=1&mute=1&loop=1&playlist=terDdZRVErA&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                                    src="https://www.youtube.com/embed/terDdZRVErA?controls=1&showinfo=0&rel=0&modestbranding=1" 
                                     frameborder="0" 
-                                    allow="autoplay; encrypted-media"
+                                    allow="encrypted-media"
                                     allowfullscreen>
                             </iframe>
-                            <div class="play-button" onclick="toggleYouTubeVideo(this)">⏸</div>
+                            <div class="play-button" onclick="toggleYouTubeVideo(this)">▶</div>
                         </div>
                         <div class="template-info">
-                            <div class="template-title">Anniversaire Adulte</div>
-                            <p class="template-description">Design élégant et sophistiqué avec typographies modernes et animations fluides</p>
+                            <div class="template-title">Lettre Happy Birthday</div>
+                            <p class="template-description">Style typographique avec lettres stylisées et animations de texte créatives pour un rendu artistique</p>
                         </div>
                     </div>
 
                     <div class="template-card">
                         <div class="template-thumbnail">
-                            <!-- Canva video from YouTube - Family Birthday Template -->
+                            <!-- Canva video from YouTube - Copine Birthday Video -->
                             <iframe class="template-video" 
-                                    src="https://www.youtube.com/embed/Ou5gH7wlR7Q?autoplay=1&mute=1&loop=1&playlist=Ou5gH7wlR7Q&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                                    src="https://www.youtube.com/embed/Ou5gH7wlR7Q?controls=1&showinfo=0&rel=0&modestbranding=1" 
                                     frameborder="0" 
-                                    allow="autoplay; encrypted-media"
+                                    allow="encrypted-media"
                                     allowfullscreen>
                             </iframe>
-                            <div class="play-button" onclick="toggleYouTubeVideo(this)">⏸</div>
+                            <div class="play-button" onclick="toggleYouTubeVideo(this)">▶</div>
                         </div>
                         <div class="template-info">
-                            <div class="template-title">Anniversaire Famille</div>
-                            <p class="template-description">Ambiance chaleureuse et familiale avec des éléments nostalgiques et touchants</p>
+                            <div class="template-title">Copine Birthday</div>
+                            <p class="template-description">Design amical et chaleureux avec couleurs douces et animations tendres parfait pour célébrer une amie spéciale</p>
                         </div>
                     </div>
 
-                    <div class="template-card">
+                    <div class="template-card hidden">
                         <div class="template-thumbnail">
                             <!-- Placeholder - Add your 4th Canva video here -->
                             <div class="template-placeholder">
@@ -883,7 +883,7 @@
                         </div>
                     </div>
 
-                    <div class="template-card">
+                    <div class="template-card hidden">
                         <div class="template-thumbnail">
                             <!-- Placeholder - Add your 5th Canva video here -->
                             <div class="template-placeholder">
@@ -1149,14 +1149,18 @@
             const iframe = button.parentElement.querySelector('iframe.template-video');
             if (iframe) {
                 const currentSrc = iframe.src;
-                if (currentSrc.includes('autoplay=1')) {
-                    // Pause by removing autoplay
-                    iframe.src = currentSrc.replace('autoplay=1', 'autoplay=0');
-                    button.textContent = '▶';
-                } else {
-                    // Play by adding autoplay
-                    iframe.src = currentSrc.replace('autoplay=0', 'autoplay=1');
+                if (button.textContent === '▶') {
+                    // Start playing by adding autoplay parameter
+                    if (currentSrc.includes('?')) {
+                        iframe.src = currentSrc + '&autoplay=1';
+                    } else {
+                        iframe.src = currentSrc + '?autoplay=1';
+                    }
                     button.textContent = '⏸';
+                } else {
+                    // Stop playing by reloading without autoplay
+                    iframe.src = currentSrc.replace(/[?&]autoplay=1/g, '');
+                    button.textContent = '▶';
                 }
             }
         }
