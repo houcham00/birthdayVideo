@@ -218,6 +218,11 @@
             height: 100%;
             object-fit: cover;
             border-radius: 0;
+            border: none;
+        }
+
+        iframe.template-video {
+            pointer-events: none; /* Prevent direct interaction with YouTube iframe */
         }
 
         .template-placeholder {
@@ -814,14 +819,14 @@
                 <div class="templates-grid">
                     <div class="template-card">
                         <div class="template-thumbnail">
-                            <!-- Replace with actual Canva video embed -->
-                            <video class="template-video" autoplay muted loop playsinline>
-                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
-                                <div class="template-placeholder">
-                                    <span>Template Anniversaire Enfant</span>
-                                </div>
-                            </video>
-                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                            <!-- Canva video from YouTube - Kids Birthday Template -->
+                            <iframe class="template-video" 
+                                    src="https://www.youtube.com/embed/skqzaMdeNjo?autoplay=1&mute=1&loop=1&playlist=skqzaMdeNjo&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                                    frameborder="0" 
+                                    allow="autoplay; encrypted-media"
+                                    allowfullscreen>
+                            </iframe>
+                            <div class="play-button" onclick="toggleYouTubeVideo(this)">⏸</div>
                         </div>
                         <div class="template-info">
                             <div class="template-title">Anniversaire Enfant</div>
@@ -831,14 +836,14 @@
 
                     <div class="template-card">
                         <div class="template-thumbnail">
-                            <!-- Replace with actual Canva video embed -->
-                            <video class="template-video" autoplay muted loop playsinline>
-                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_2mb.mp4" type="video/mp4">
-                                <div class="template-placeholder">
-                                    <span>Template Anniversaire Adulte</span>
-                                </div>
-                            </video>
-                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                            <!-- Canva video from YouTube - Adult Birthday Template -->
+                            <iframe class="template-video" 
+                                    src="https://www.youtube.com/embed/terDdZRVErA?autoplay=1&mute=1&loop=1&playlist=terDdZRVErA&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                                    frameborder="0" 
+                                    allow="autoplay; encrypted-media"
+                                    allowfullscreen>
+                            </iframe>
+                            <div class="play-button" onclick="toggleYouTubeVideo(this)">⏸</div>
                         </div>
                         <div class="template-info">
                             <div class="template-title">Anniversaire Adulte</div>
@@ -848,14 +853,14 @@
 
                     <div class="template-card">
                         <div class="template-thumbnail">
-                            <!-- Replace with actual Canva video embed -->
-                            <video class="template-video" autoplay muted loop playsinline>
-                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_5mb.mp4" type="video/mp4">
-                                <div class="template-placeholder">
-                                    <span>Template Famille</span>
-                                </div>
-                            </video>
-                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                            <!-- Canva video from YouTube - Family Birthday Template -->
+                            <iframe class="template-video" 
+                                    src="https://www.youtube.com/embed/Ou5gH7wlR7Q?autoplay=1&mute=1&loop=1&playlist=Ou5gH7wlR7Q&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                                    frameborder="0" 
+                                    allow="autoplay; encrypted-media"
+                                    allowfullscreen>
+                            </iframe>
+                            <div class="play-button" onclick="toggleYouTubeVideo(this)">⏸</div>
                         </div>
                         <div class="template-info">
                             <div class="template-title">Anniversaire Famille</div>
@@ -865,14 +870,12 @@
 
                     <div class="template-card">
                         <div class="template-thumbnail">
-                            <!-- Replace with actual Canva video embed -->
-                            <video class="template-video" autoplay muted loop playsinline>
-                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_640x360_1mb.mp4" type="video/mp4">
-                                <div class="template-placeholder">
-                                    <span>Template Entreprise</span>
-                                </div>
-                            </video>
-                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                            <!-- Placeholder - Add your 4th Canva video here -->
+                            <div class="template-placeholder">
+                                <span>Template Entreprise</span>
+                                <small style="display: block; margin-top: 8px; opacity: 0.7;">Ajoutez votre vidéo YouTube ici</small>
+                            </div>
+                            <div class="play-button" style="opacity: 0.5;">▶</div>
                         </div>
                         <div class="template-info">
                             <div class="template-title">Anniversaire Entreprise</div>
@@ -882,14 +885,12 @@
 
                     <div class="template-card">
                         <div class="template-thumbnail">
-                            <!-- Replace with actual Canva video embed -->
-                            <video class="template-video" autoplay muted loop playsinline>
-                                <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_360x240_1mb.mp4" type="video/mp4">
-                                <div class="template-placeholder">
-                                    <span>Template Romantique</span>
-                                </div>
-                            </video>
-                            <div class="play-button" onclick="toggleVideo(this)">⏸</div>
+                            <!-- Placeholder - Add your 5th Canva video here -->
+                            <div class="template-placeholder">
+                                <span>Template Romantique</span>
+                                <small style="display: block; margin-top: 8px; opacity: 0.7;">Ajoutez votre vidéo YouTube ici</small>
+                            </div>
+                            <div class="play-button" style="opacity: 0.5;">▶</div>
                         </div>
                         <div class="template-info">
                             <div class="template-title">Anniversaire Romantique</div>
@@ -1017,7 +1018,7 @@
 
     <script>
         // Configuration variables
-        const MONEROO_PUBLIC_KEY = 'YOUR_MONEROO_PUBLIC_KEY';
+        const MONEROO_PUBLIC_KEY = 'pvk_sandbox_t14orn|01K1VTHSEXG324E819CPFMENEB';
         const TYPEFORM_URL = 'https://form.typeform.com/to/YOUR_TYPEFORM_ID';
         
         let selectedPackage = null;
@@ -1133,13 +1134,29 @@
         // Video control functions
         function toggleVideo(button) {
             const video = button.parentElement.querySelector('.template-video');
-            if (video) {
+            if (video && video.tagName === 'VIDEO') {
                 if (video.paused) {
                     video.play();
                     button.textContent = '⏸';
                 } else {
                     video.pause();
                     button.textContent = '▶';
+                }
+            }
+        }
+
+        function toggleYouTubeVideo(button) {
+            const iframe = button.parentElement.querySelector('iframe.template-video');
+            if (iframe) {
+                const currentSrc = iframe.src;
+                if (currentSrc.includes('autoplay=1')) {
+                    // Pause by removing autoplay
+                    iframe.src = currentSrc.replace('autoplay=1', 'autoplay=0');
+                    button.textContent = '▶';
+                } else {
+                    // Play by adding autoplay
+                    iframe.src = currentSrc.replace('autoplay=0', 'autoplay=1');
+                    button.textContent = '⏸';
                 }
             }
         }
