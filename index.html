@@ -549,6 +549,33 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
         }
 
+        .payment-instructions {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .payment-instructions h4 {
+            margin-bottom: 20px;
+        }
+
+        .payment-instructions ol {
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .whatsapp-contact {
+            text-align: center;
+        }
+
+        .step-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
         /* Modal */
         .modal {
             display: none;
@@ -916,12 +943,12 @@
                     <div class="progress-divider"></div>
                     <div class="progress-step" id="progress-2">
                         <div class="progress-number">2</div>
-                        <span>Paiement</span>
+                        <span>Informations</span>
                     </div>
                     <div class="progress-divider"></div>
                     <div class="progress-step" id="progress-3">
                         <div class="progress-number">3</div>
-                        <span>Informations</span>
+                        <span>Paiement</span>
                     </div>
                 </div>
 
@@ -934,7 +961,7 @@
                                 <div class="package-title">🎂 3 Anniversaires / An</div>
                                 <div class="package-description">Commandez vos vidéos quand vous voulez • 3 crédits utilisables toute l'année pour 3 anniversaires différents</div>
                                 <ul class="package-features">
-                                    <li>5 designs professionnels au choix</li>
+                                    <li>3 designs professionnels au choix</li>
                                     <li>3 crédits vidéo à utiliser quand vous voulez</li>
                                     <li>Valable 12 mois après achat</li>
                                     <li>Livraison 24h par commande</li>
@@ -954,50 +981,21 @@
                             </div>
                         </div>
                         <div class="step-navigation">
-                            <button class="btn btn-primary" id="continue-payment" onclick="showPaymentStep()" disabled>
-                                Continuer vers le paiement →
+                            <button class="btn btn-primary" id="continue-payment" onclick="showInfoStep()" disabled>
+                                Continuer vers les informations →
                             </button>
                         </div>
                     </div>
 
-                    <!-- Step 2: Payment -->
-                    <div class="step" id="step-payment">
-                        <h3>Étape 2 : Paiement sécurisé</h3>
+                    <!-- Step 2: Form -->
+                    <div class="step" id="step-form">
+                        <h3>Étape 2 : Vos informations</h3>
                         <div class="package-selection-info">
-                            <p>Formule sélectionnée : <span class="selected-package" id="selected-package-display"></span></p>
+                            <p>Formule sélectionnée : <span class="selected-package" id="selected-package-display-form"></span></p>
                             <p style="margin-top: 8px; font-size: 1.5rem; font-weight: 800; color: #00c4cc;">10 000 FCFA</p>
                         </div>
-                        <div class="payment-provider">
-                            <div class="provider-logos">
-                                <div class="provider-logo">💳 Moneroo</div>
-                                <div class="provider-logo">🏦 Axa Zara</div>
-                            </div>
-                            <div class="moneroo-checkout">
-                                <div id="moneroo-payment-button">
-                                    <button class="btn btn-primary" onclick="processPayment()" id="payment-btn">
-                                        🔒 Payer 10 000 FCFA maintenant
-                                    </button>
-                                    <p style="margin-top: 16px; color: #6c757d; font-size: 0.875rem;">
-                                        Paiement 100% sécurisé • Satisfaction garantie
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="step-navigation">
-                            <button class="btn btn-back" onclick="goToStep(1)">
-                                ← Retour
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Step 3: Form -->
-                    <div class="step" id="step-form">
-                        <h3>Étape 3 : Vos informations</h3>
-                        <div class="package-selection-info">
-                            <p>✅ Paiement réussi pour : <span class="selected-package" id="final-package-display"></span></p>
-                        </div>
                         <div class="instructions">
-                            🎬 Remplissez ce formulaire pour recevoir votre vidéo personnalisée
+                            🎬 Remplissez ce formulaire pour nous donner les détails de votre vidéo personnalisée
                         </div>
                         <div class="typeform-container">
                             <iframe class="typeform-iframe" 
@@ -1006,8 +1004,49 @@
                             </iframe>
                         </div>
                         <div class="step-navigation">
+                            <button class="btn btn-back" onclick="goToStep(1)">
+                                ← Retour au choix
+                            </button>
+                            <button class="btn btn-primary" onclick="showPaymentStep()">
+                                Continuer vers le paiement →
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Payment -->
+                    <div class="step" id="step-payment">
+                        <h3>Étape 3 : Paiement Mobile Money</h3>
+                        <div class="package-selection-info">
+                            <p>Commande finale : <span class="selected-package" id="final-package-display"></span></p>
+                            <p style="margin-top: 8px; font-size: 1.5rem; font-weight: 800; color: #00c4cc;">10 000 FCFA</p>
+                        </div>
+                        
+                        <div class="payment-provider">
+                            <div class="payment-instructions">
+                                <h4 style="color: #00c4cc; margin-bottom: 20px; font-size: 1.25rem;">💳 Instructions de Paiement</h4>
+                                <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 24px; text-align: left;">
+                                    <p style="margin-bottom: 12px; font-weight: 600; color: #1a1a1a;">Pour finaliser votre commande :</p>
+                                    <ol style="margin-left: 20px; color: #495057; line-height: 1.6;">
+                                        <li style="margin-bottom: 8px;">Envoyez <strong>10 000 FCFA</strong> par MTN Mobile Money au numéro :</li>
+                                        <li style="margin-bottom: 8px; font-size: 1.25rem; font-weight: 800; color: #00c4cc; text-align: center; background: white; padding: 12px; border-radius: 8px; border: 2px solid #00c4cc;">📱 229 01 98 16 42 42</li>
+                                        <li style="margin-bottom: 8px;">Cliquez sur le bouton WhatsApp ci-dessous pour nous confirmer votre paiement</li>
+                                        <li>Nous vous contacterons dans les 2h pour démarrer votre projet !</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <div class="whatsapp-contact">
+                                <button class="btn btn-primary" onclick="contactWhatsApp()" id="whatsapp-btn" style="background: #25D366; font-size: 1.1rem; padding: 18px 32px;">
+                                    💬 Confirmer le paiement sur WhatsApp
+                                </button>
+                                <p style="margin-top: 16px; color: #6c757d; font-size: 0.875rem;">
+                                    ✅ Paiement sécurisé MTN Mobile Money • Support client immédiat
+                                </p>
+                            </div>
+                        </div>
+                        <div class="step-navigation">
                             <button class="btn btn-back" onclick="goToStep(2)">
-                                ← Retour au paiement
+                                ← Retour aux informations
                             </button>
                         </div>
                     </div>
@@ -1076,10 +1115,10 @@
             if (step === 1) {
                 document.getElementById('step-package').classList.add('active');
             } else if (step === 2) {
-                document.getElementById('step-payment').classList.add('active');
+                document.getElementById('step-form').classList.add('active');
                 updatePaymentDisplay();
             } else if (step === 3) {
-                document.getElementById('step-form').classList.add('active');
+                document.getElementById('step-payment').classList.add('active');
                 updateFinalDisplay();
             }
             
@@ -1087,12 +1126,16 @@
             updateProgressIndicator(step);
         }
 
-        function showPaymentStep() {
+        function showInfoStep() {
             goToStep(2);
         }
 
+        function showPaymentStep() {
+            goToStep(3);
+        }
+
         function updatePaymentDisplay() {
-            const packageDisplay = document.getElementById('selected-package-display');
+            const packageDisplay = document.getElementById('selected-package-display-form');
             if (packageDisplay && selectedPackage) {
                 packageDisplay.textContent = packageNames[selectedPackage];
             }
@@ -1110,25 +1153,26 @@
             iframe.src = typeformUrl;
         }
 
+        function contactWhatsApp() {
+            const packageName = packageNames[selectedPackage] || 'Package non défini';
+            const message = `Bonjour ! Je viens de remplir le formulaire pour une vidéo d'anniversaire.
+
+📦 Formule choisie : ${packageName}
+💰 Montant : 10 000 FCFA
+💳 Paiement effectué sur : 229 01 98 16 42 42
+
+Je vous confirme mon paiement Mobile Money. Merci de me contacter pour la suite !`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/22901981642442?text=${encodedMessage}`;
+            
+            // Open WhatsApp in new tab
+            window.open(whatsappUrl, '_blank');
+        }
+
         function processPayment() {
-            const paymentBtn = document.getElementById('payment-btn');
-            
-            // Show loading state
-            paymentBtn.innerHTML = '<span class="loading-spinner"></span> Traitement en cours...';
-            paymentBtn.disabled = true;
-            
-            // Simulate payment processing
-            // In production, integrate with actual Moneroo API
-            console.log('Processing payment for package:', selectedPackage);
-            
-            setTimeout(() => {
-                // Simulate successful payment
-                paymentBtn.innerHTML = '<span class="success-checkmark"></span> Paiement réussi !';
-                
-                setTimeout(() => {
-                    goToStep(3);
-                }, 1500);
-            }, 3000);
+            // This function is no longer used but kept for compatibility
+            console.log('Old payment function - now using WhatsApp flow');
         }
 
         // Video control functions
