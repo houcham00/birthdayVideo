@@ -1116,17 +1116,9 @@
 
         function contactWhatsApp() {
             const packageName = packageNames[selectedPackage] || 'Package non défini';
-            const message = `Bonjour ! Je viens de faire une commande sur votre site.
-
-📦 Formule choisie : ${packageName}
-💰 Montant : 10 000 FCFA
-💳 Paiement effectué sur : 229 01 96 18 42 42
-
-Je confirme mon paiement Mobile Money. Pouvez-vous me contacter pour les prochaines étapes ? Merci !`;
-
+            const message = `Bonjour ! Je souhaite commander une vidéo d'anniversaire personnalisée.\n\n📦 Formule choisie : ${packageName}\n💰 Montant : 10 000 FCFA\n\nMerci de me contacter pour discuter de mon projet et m'indiquer les informations à fournir !`;
             const encodedMessage = encodeURIComponent(message);
             const whatsappUrl = `https://wa.me/2290196184242?text=${encodedMessage}`;
-            
             // Open WhatsApp in new tab
             window.open(whatsappUrl, '_blank');
         }
